@@ -28,6 +28,7 @@ We extend our heartfelt gratitude to:
 1. Clone the repository: `git clone https://github.com/Anuj-er/Cyclotimer.git`
 2. Open the project in your preferred code editor.
 3. Run the application and start utilizing the Cyclotimer.
+4. You can use this link also: "cyclo-timer-g19.vercel.app"
 
 ## Contributions
 
