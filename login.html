@@ -1,112 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Login Page</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="icon" href="contents/images/clock.jpg">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="icon" href="contents/images/clock.jpg">
 
 </head>
-<body>
-    <header class="header">
-        <h1 class="logo"><a href="Content/images/Logo-site.png" style="color: rgb(68, 5, 62);">CYCL<i class="fa-solid fa-clock-rotate-left" style="font-size: 56px;"></i>TIMER</a></h1>
-      <ul class="main-nav">
-          <li><a href="main.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="sign-up.html">Sign up</a></li>
-          <!-- <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Contact</a></li> -->
-      </ul>
-    </header> 
 
-    <div class="container">      
-        <div class="logo">
-            </div>
-        <div class="login-form">
-            <h1 style="color:aliceblue;">LOGIN</h1>
-            <br><br>
-            <form id="loginForm">
-                <div class="input-container1">
-                    <label for="username" style="color: rgb(255, 255, 255);">Username:</label>
-                    <input type="text" id="username" placeholder="Enter your username" name="username" required style="margin-top: 10px;"  required>
-                    <span id="usernameError" class="error-message"></span>
-                </div>
-                <div class="password-container1">
-                    <label for="password" style="color: rgb(254, 254, 254)";>&nbsp; &nbsp;&nbsp;&nbsp;Password:</label>
-                    &nbsp;&nbsp;&nbsp;<input type="password" id="password"placeholder="Enter your password" name="password" required>
-                    <span id="passwordError" class="error-message"></span>
-                    <i class="fa-solid fa-eye" id="eye"></i>
-                </div>
-                <div class="btn-container">
-                    <button type="submit" onclick="openMainPage()">Next</button>
-                </div>
-                <div class="h5">
-                    <h5 style="color: rgb(255, 255, 255);">or Login using</h5>
-                    <div class="links">
-                        <a href="https://www.google.com"><img src="contents/logo/google.png" alt="google_logo" style="width:45px;height:42px;"></a>
-                        <a href="https://www.facebook.com"><img src="contents/logo/facebook.jpg" alt="facebook_logo" style="width:42px;height:42px;"></a>
-                        <a href="https://www.github.com"><img src="contents/logo/github.png" alt="github_logo" style="width:42px;height:42px;"></a>
-                        <a href="Content/forgot-pass.html" style="color: rgb(255, 255, 255);"><h6><a href="forgot-pass.html">Forgot Password?</a></h6></a><a href="sign-up.html" style="color: rgb(255, 255, 255);"><h6>New User</h6></a>
-                    </div>
-            </form>
-        </div>
+<body>
+  <header class="header">
+    <h1 class="logo"><a href="Content/images/Logo-site.png" style="color: rgb(68, 5, 62);">CYCL<i
+          class="fa-solid fa-clock-rotate-left" style="font-size: 56px;"></i>TIMER</a></h1>
+    <ul class="main-nav">
+      <li><a href="main.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="sign-up.html">Sign up</a></li>
+      <!-- <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Contact</a></li> -->
+    </ul>
+  </header>
+
+  <div class="container">
+    <div class="logo">
     </div>
+    <div class="login-form">
+      <h1 style="color:aliceblue;">LOGIN</h1>
+      <br><br>
+      <form id="loginForm">
+        <div class="input-container1">
+          <label for="username" style="color: rgb(255, 255, 255);">Username:</label>
+          <input type="text" id="username" placeholder="Enter your username" name="username" required
+            style="margin-top: 10px;" required>
+          <span id="usernameError" class="error-message"></span>
+        </div>
+        <div class="password-container1">
+          <label for="password" style="color: rgb(254, 254, 254)" ;>&nbsp; &nbsp;&nbsp;&nbsp;Password:</label>
+          &nbsp;&nbsp;&nbsp;<input type="password" id="password" placeholder="Enter your password" name="password"
+            required>
+          <span id="passwordError" class="error-message"></span>
+          <i class="fa-solid fa-eye" id="eye"></i>
+        </div>
+        <div class="btn-container">
+          <button type="submit" onclick="">Next</button>
+        </div>
+        <div class="h5">
+          <h5 style="color: rgb(255, 255, 255);">or Login using</h5>
+          <div class="links">
+            <a href="https://www.google.com"><img src="contents/logo/google.png" alt="google_logo"
+                style="width:45px;height:42px;"></a>
+            <a href="https://www.facebook.com"><img src="contents/logo/facebook.jpg" alt="facebook_logo"
+                style="width:42px;height:42px;"></a>
+            <a href="https://www.github.com"><img src="contents/logo/github.png" alt="github_logo"
+                style="width:42px;height:42px;"></a>
+            <a href="Content/forgot-pass.html" style="color: rgb(255, 255, 255);">
+              <h6><a href="forgot-pass.html">Forgot Password?</a></h6>
+            </a><a href="sign-up.html" style="color: rgb(255, 255, 255);">
+              <h6>New User</h6>
+            </a>
+          </div>
+      </form>
+    </div>
+  </div>
 </body>
 <script>
-    const eye = document.getElementById('eye');
-const password = document.getElementById('password');
-const loginForm = document.getElementById('loginForm');
-const usernameError = document.getElementById('usernameError');
-const passwordError = document.getElementById('passwordError');
+  const eye = document.getElementById('eye');
+  const password = document.getElementById('password');
+  const loginForm = document.getElementById('loginForm');
+  const usernameError = document.getElementById('usernameError');
+  const passwordError = document.getElementById('passwordError');
 
-eye.addEventListener('click', () => {
-  if (password.type === 'password') {
-    password.type = 'text';
-    eye.classList.add('fa-solid', 'fa-eye-slash');
-  } else {
-    password.type = 'password';
-    eye.classList.remove('fa-solid', 'fa-eye-slash');
+  eye.addEventListener('click', () => {
+      if (password.type === 'password') {
+          password.type = 'text';
+          eye.classList.add('fa-eye-slash');
+      } else {
+          password.type = 'password';
+          eye.classList.remove('fa-eye-slash');
+      }
+  });
+
+  loginForm.addEventListener('submit', (event) => {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Clear previous error messages
+      usernameError.textContent = '';
+      passwordError.textContent = '';
+
+      // Get entered username and password
+      const username = document.getElementById('username').value.trim();
+      const userPassword = document.getElementById('password').value.trim();
+
+      // Check if the entered username and password match the allowed credentials
+      if (username === 'user' && userPassword === 'user') {
+          // Redirect to main.html after successful login
+          openMainPage();
+      } else {
+          // Display an error message for invalid credentials
+          usernameError.textContent = 'Invalid username or password';
+      }
+  });
+
+  function openMainPage() {
+      window.location.href = 'main.html';
   }
-});
-
-loginForm.addEventListener('submit', (event) => {
-  event.preventDefault(); // Prevent the default form submission
-
-  // Validate username and password
-  let isValid = true;
-
-  if (!validateUsername(username.value)) {
-    usernameError.textContent = 'Please enter a valid username';
-    usernameError.style.display = 'block';
-    isValid = false;
-  }
-
-  if (!validatePassword(password.value)) {
-    passwordError.textContent = 'Please enter a valid password';
-    passwordError.style.display = 'block';
-    isValid = false;
-  }
-
-  // Submit the form if validation is successful
-  if (isValid) {
-    // Use AJAX or other methods to handle the form data
-    console.log('Form submitted successfully');
-  }
-});
-
-function validateUsername(username) {
-  // Implement username validation logic here
-  return username.length > 0; // Replace this with your validation logic
-}
-
-function validatePassword(password) {
-  // Implement password validation logic here
-  return password.length > 0; // Replace this with your validation logic
-}
-function openMainPage() {
-    window.location.href = 'main.html';
-}
-
-
 </script>
+
+
 </html>
