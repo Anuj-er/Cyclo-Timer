@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Main Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="contents/images/clock.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <h2 class="logo"><a href="Logo-site.png" style="color: rgb(68, 5, 62);">CYCL<i
+                    class="fa-solid fa-clock-rotate-left" style="font-size: 56px;"></i>TIMER</a></h2>
+        <ul class="main-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </header>
+
+    <div class="container2">
+        <div class="countdown-form">
+            <h2><strong>Set Countdown Timer</strong></h2>
+            <br>
+            <form id="countdownForm">
+                <div class="input-container2">
+                    <label for="countdownInput" style="color: rgb(131, 172, 208);"><strong>Enter Time :&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;</strong></label>
+                    <input type="number" id="countdownInput" required style="color: rgb(131, 172, 208);">
+                </div>
+                <div class="input-container3">
+                    <label for="timeOptions2" style="color: rgb(131, 172, 208);"><strong>Include Time
+                            :</strong>&nbsp;</label>
+                    <div id="timeOptions2">
+                        <input type="radio" id="secondsOption" name="time" style="color: rgb(131, 172, 208);" checked>
+                        <label for="secondsOption">seconds&nbsp; &nbsp;&nbsp;</style></strong></label>
+                        <input type="radio" id="minutesOption" name="time" style="color: rgb(131, 172, 208);">
+                        <label for="minutesOption">minutes&nbsp; &nbsp; &nbsp;&nbsp;</strong><br></label><br>
+                    </div>
+                </div>
+                <div class="input-container2">
+                    <label for="timingOptions"
+                        style="color:rgb(131, 172, 208);"><b>Timings:</b>&nbsp;&nbsp;&nbsp;</strong></label>
+                    <select id="timingOptions" style="color: rgb(129, 121, 121);" onchange="setPredefinedTime()">
+                        <option value="0">Select time</option>
+                        <option value="60">1 minute</option>
+                        <option value="120">2 minutes</option>
+                        <option value="300">5 minutes</option>
+                        <option value="600">10 minutes</option>
+                    </select>
+                </div>
+                <div class="btn-container">
+                    <button type="button" onclick="startCountdown()">Start</button>
+                </div>
+                <div class="btn-container">
+                    <button id="stopbutton" button"
+                        onclick="stopCountdown()">Stop</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="resetbutton" type="button" onclick="resetCountdown()">Reset</button>
+                </div>
+                <div class="btn-container">
+                    <h2><small>Countdown Timer</small></h2>
+                    <div id="timer"></div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var countdown;
+        var isStarted = false;
+        var startAudio = new Audio('contents/audio/audio.mp3');
+        var completionAudio = new Audio('contents/audio/audio2.mp3');
+        var remainingTime = 0;
+
+        function setPredefinedTime() {
+            var timingOptions = document.getElementById("timingOptions");
+            var selectedTiming = timingOptions.options[timingOptions.selectedIndex].value;
+
+            if (selectedTiming !== "0") {
+                if (document.getElementById("secondsOption").checked) {
+                    document.getElementById("countdownInput").value = selectedTiming;
+                } else {
+                    document.getElementById("countdownInput").value = selectedTiming / 60; // Convert to seconds
+                }
+            }
+        }
+
+        function startCountdown() {
+            if (isStarted) {
+                return;
+            }
+
+            var timerElement = document.getElementById("timer");
+            var timeOption = document.querySelector('input[name="time"]:checked').id;
+
+            startAudio.play();
+
+            var countdownInput = document.getElementById("countdownInput").value;
+            var time = parseInt(countdownInput);
+
+            if (isNaN(time) || time <= 0) {
+                timerElement.textContent = "Please enter a valid positive number";
+                return;
+            }
+
+            if (remainingTime > 0) {
+                time = remainingTime;
+                remainingTime = 0;
+            }
+
+            isStarted = true;
+
+            if (timeOption === "secondsOption") {
+                timerElement.textContent = time + " seconds remaining";
+            } else {
+                time *= 60;
+                timerElement.textContent = time + " seconds remaining";
+            }
+
+            countdown = setInterval(function () {
+                if (timeOption === "secondsOption") {
+                    timerElement.textContent = time + " seconds remaining";
+                } else {
+                    timerElement.textContent = time + " seconds remaining";
+                }
+                time--;
+
+                if (time < 0) {
+                    clearInterval(countdown);
+                    timerElement.textContent = "Time's up!";
+                    startAudio.pause();
+                    completionAudio.play();
+                }
+                remainingTime = time;
+            }, 1000);
+        }
+    
+        function stopCountdown() {
+            clearInterval(countdown);
+            isStarted = false;
+            startAudio.pause();
+        }
+
+        function resetCountdown() {
+            clearInterval(countdown);
+            isStarted = false;
+            document.getElementById("timer").textContent = "";
+            document.getElementById("countdownInput").value = "";
+            document.getElementById("minutesOption").checked = false;
+            document.getElementById("secondsOption").checked = true;
+            document.getElementById("timingOptions").selectedIndex = 0;
+            startAudio.pause();
+            remainingTime = 0;
+        }
+    </script>
+</body>
+
+</html>
