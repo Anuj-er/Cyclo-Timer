@@ -36,11 +36,11 @@
                         <input type="email" placeholder="Email Address" name="email" required>
                     </div>
                     <div class="input-container">
-                        <input type="password" placeholder="Password" name="password" required>
+                        <input type="password" placeholder="6-Digit Password" name="password" required>
                     </div>
-                    <div class="input-container">
+                    <!-- <div class="input-container">
                         <input type="password" placeholder="Confirm-Password" name="confirm-password" required>
-                    </div>
+                    </div> -->
 
                     <div class="btn-container">
                         <button type="submit">Sign Up</button>
@@ -71,40 +71,34 @@
         </div>
 
         <script>
-            // Handle form submission
-            const signupForm = document.getElementById('signupForm');
-            signupForm.addEventListener('submit', (event) => {
-              event.preventDefault(); // Prevent the default form submission
-              
-              const fullname = document.getElementById('fullname').value.trim();
-              const email = document.getElementById('email').value.trim();
-              const password = document.getElementById('password').value;
-              const confirmPassword = document.getElementById('confirm-password').value;
-              
-              // Check if any required field is empty
-              if (fullname === '' || email === '' || password === '' || confirmPassword === '') {
-                // Display an alert if any required field is empty
-                alert('Please fill in all required fields.');
-                return; // Stop further execution
-              }
-              
-              // Email validation using regular expression
-              const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-              if (!emailPattern.test(email)) {
-                alert('Please enter a valid email address.');
-                return; // Stop further execution if email is invalid
-              }
-              
-              // Check if password and confirm password match
-              if (password !== confirmPassword || password.length < 6) {
-                alert('Passwords do not match or do not meet the minimum length requirement (at least 6 characters).');
-                return; // Stop further execution if passwords do not match or are too short
-              }
-              
-              // Redirect to main.html if all required fields are filled and validated
-              window.location.href = 'main.html';
+            document.addEventListener('DOMContentLoaded', function () {
+                const signupForm = document.getElementById('signupForm');
+    
+                signupForm.addEventListener('submit', function (event) {
+                    event.preventDefault(); // Prevent the default form submission
+    
+                    const fullname = document.querySelector('input[name="fullname"]').value.trim();
+                    const email = document.querySelector('input[name="email"]').value.trim();
+                    const password = document.querySelector('input[name="password"]').value.trim();
+    
+                    // Check if any required field is empty
+                    if (fullname === '' || email === '' || password === '') {
+                        alert('Please fill in all required fields.');
+                        return; // Stop further execution
+                    }
+    
+                    // Email validation using regular expression
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(email)) {
+                        alert('Please enter a valid email address.');
+                        return; // Stop further execution if email is invalid
+                    }
+    
+                    // Redirect to main.html if all required fields are filled and validated
+                    window.location.href = 'main.html';
+                });
             });
-          </script>
+        </script>
           
           
 
