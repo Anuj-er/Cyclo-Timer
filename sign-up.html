@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="btn-container">
-                        <button type="submit"><a href="main.html">Sign Up</a></button>
+                        <button type="submit">Sign Up</button>
                     </div>
                 </form>
                 <div class="options">
@@ -75,37 +75,36 @@
             const signupForm = document.getElementById('signupForm');
             signupForm.addEventListener('submit', (event) => {
               event.preventDefault(); // Prevent the default form submission
-          
+              
               const fullname = document.getElementById('fullname').value.trim();
               const email = document.getElementById('email').value.trim();
               const password = document.getElementById('password').value;
               const confirmPassword = document.getElementById('confirm-password').value;
-          
+              
               // Check if any required field is empty
               if (fullname === '' || email === '' || password === '' || confirmPassword === '') {
                 // Display an alert if any required field is empty
                 alert('Please fill in all required fields.');
                 return; // Stop further execution
               }
-          
+              
               // Email validation using regular expression
               const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
               if (!emailPattern.test(email)) {
                 alert('Please enter a valid email address.');
                 return; // Stop further execution if email is invalid
               }
-          
+              
               // Check if password and confirm password match
-              if (password !== confirmPassword) {
-                alert('Passwords do not match.');
-                return; // Stop further execution if passwords do not match
+              if (password !== confirmPassword || password.length < 6) {
+                alert('Passwords do not match or do not meet the minimum length requirement (at least 6 characters).');
+                return; // Stop further execution if passwords do not match or are too short
               }
-          
+              
               // Redirect to main.html if all required fields are filled and validated
               window.location.href = 'main.html';
             });
           </script>
-          
           
           
 
