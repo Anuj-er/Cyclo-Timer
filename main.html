@@ -53,8 +53,8 @@
                     <button type="button" onclick="startCountdown()">Start</button>
                 </div>
                 <div class="btn-container">
-                    <button id="stopbutton" button"
-                        onclick="stopCountdown()">Stop</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="stopbutton" type="button" onclick="stopCountdown()">Stop</button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button id="resetbutton" type="button" onclick="resetCountdown()">Reset</button>
                 </div>
                 <div class="btn-container">
@@ -137,11 +137,17 @@
             }, 1000);
         }
     
-        function stopCountdown() {
+        function stopCountdown(){
+            if (isStarted) {
             clearInterval(countdown);
             isStarted = false;
-            startAudio.pause();
-        }
+            startAudio.pause(); // If necessary to pause audio
+
+            var timerElement = document.getElementById("timer");
+            var timeString = timerElement.textContent;
+            var timeRemaining = parseInt(timeString.split(" ")[0]); // Extract remaining time
+            remainingTime = timeRemaining;
+        }}
 
         function resetCountdown() {
             clearInterval(countdown);
