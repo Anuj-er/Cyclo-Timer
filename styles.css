@@ -467,3 +467,20 @@ body {
     border: 2px solid #00160e;
     border-width: 3px;
 }
+
+#a{
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+#a:hover {
+    background-color: rgb(215, 112, 112);
+    color: rgb(0, 0, 0);
+}
